@@ -17,7 +17,7 @@
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/css/' +
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/print/' +
                 (window.location.search.match( /print-pdf/gi ) ? 'pdf.css' : 'paper.css');
         document.getElementsByTagName( 'head' )[0].appendChild(link);
     </script>
@@ -26,6 +26,9 @@
             border: 0;
             background: none;
             box-shadow: 0 0 #000;
+        }
+        .reveal section h2, .reveal section h3 {
+            text-transform: none;
         }
     </style>
 </head>
@@ -311,6 +314,10 @@ $app->pipe('/foo', function ($req, $res, $next) {
     // Full list of configuration options available at:
     // https://github.com/hakimel/reveal.js#configuration
     Reveal.initialize({
+        keyboard: {
+            39: 'next',
+            37: 'prev'
+        },
         controls: true,
         progress: true,
         history: true,
